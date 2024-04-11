@@ -1,0 +1,29 @@
+1. **타이레놀(Tylenol)**: 아세트아미노펜(Acetaminophen)
+2. **부루펜(Ibuprofen)**: 이부프로펜(Ibuprofen)
+3. **겔포스(Gepos)**: 특정 제품에 대한 정보가 부족합니다. 일반적으로 인후통 치료에 사용되는 성분으로는 리도카인, 벤조카인 등이 있습니다.
+4. **베나치오(Benachio)**: 베나치오에 대한 구체적인 정보가 부족합니다. 소화불량, 위산 과다, 속쓰림에 흔히 사용되는 성분으로는 라니티딘, 옴에프라졸 등이 있습니다.
+5. **판콜(pancol)**: 아세트아미노펜(Acetaminophen)과 다른 감기약 성분들
+6. **후시딘(Fucidin)**: 푸시드산(Fusidic acid)
+7. **마데카솔(Madecassol)**: 센텔라 아시아티카 추출물(Centella Asiatica Extract)
+8. **페니라민(Peniramine)**: 페니라민(Pheniramine)
+9. **임팩타민(Impactamin)**: 비타민 B군, 비타민 C 등
+10. **가스모틴(Gasmotin)**: 모사프리드(Mosapride)
+11. **이가탄(Egatan)**: 특정 제품에 대한 정보가 부족합니다. 일반적으로 구강 내 염증, 인후통 치료에 사용되는 성분으로는 클로르헥시딘, 벤자미딘 등이 있습니다.
+12. **로테라(Rotera)**: 실리마린(Silymarin)
+13. **아로나민(Aronamin)**: 비타민 B1(티아민), 비타민 B2(리보플라빈), 비타민 B6(피리독신), 비타민 B12(시아노코발라민), 비타민 C(아스코르빈산)
+14. **비판텐(Bepanthen)**: 덱스판테놀(Dexpanthenol)
+15. **레보티라세탐(Levetiracetam)**: 레베티라세탐(Levetiracetam)
+16. **모티리움(Motilium)**: 돔페리돈(Domperidone)
+17. **알레그라(Allegra)**: 펙소페나딘(Fexofenadine)
+18. **트리메부틴(Trimebutine)**: 트리메부틴(Trimebutine)
+19. **콜대원(Cold-one)**: 아세트아미노펜, 클로르페니라민, 페닐에프린 등
+20. **엑세라민(Exermin)**: 비타민 C,아세스코르빈산
+21. **니코틴패치(Nicotine Patch)**: 니코틴(Nicotine)
+22. **프로바이오틱스(Probiotics)**: 다양한 유산균 종(Lactobacillus, Bifidobacterium 등)
+23. **머시론(Mucilon)**: 다양한 기침약 성분 중 하나인 구아이페네신(Guaifenesin)과 덱스트로메토르판(Dextromethorphan) 등이 포함될 수 있습니다. 정확한 성분은 제품에 따라 다를 수 있습니다.
+24. **스토가(Stoga)**: 멀미, 구토 치료에 사용되는 성분으로는 디멘히드리네이트(Dimenhydrinate), 메클리진(Meclizine) 등이 있으나, 스토가에 대한 구체적인 정보는 부족합니다.
+25. **락토핏(Lactofit)**: 다양한 유산균 종(Lactobacillus, Bifidobacterium 등)
+26. **케토톱(Ketotop)**: 케토프로펜(Ketoprofen)
+27. **후라시딘(Flucidin)**: 푸시드산(Fusidic Acid)
+28. **아세트아미노펜(Acetaminophen)**: 아세트아미노펜(Acetaminophen)
+29. **테라플루(Theraflu)**: 아세트아미노펜, 페닐에프린 HCI, 클로르페니라민 말레이트 등
