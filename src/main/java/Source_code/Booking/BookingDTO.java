@@ -1,6 +1,9 @@
 package Source_code.Booking;
 
-public class BookingDTO {
+import java.util.Date;
 
+public class BookingDTO {
+ private int book_code;
+ private Date book_date;
 
 }
