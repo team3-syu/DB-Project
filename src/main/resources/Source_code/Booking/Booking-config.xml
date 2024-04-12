@@ -8,13 +8,13 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost/menu"/>
+                <property name="url" value="jdbc:mysql://localhost/medicine"/>
                 <property name="username" value="sahmyook"/>
                 <property name="password" value="sahmyook"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="SourceCode/Booking/Booking-mapper.xml"/>
+        <mapper resource="Source_code/Booking/Booking-mapper.xml"/>
     </mappers>
 </configuration>
