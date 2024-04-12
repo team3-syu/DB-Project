@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="IngredientMapper">
+
+
+    <resultMap id="ingredientResultMap" type="Ingredient.IngredientDTO">
+        <id property="ingredientCode" column="IngredientCode"/>
+        <result property="ingredientName" column="IngredientName"/>
+        <result property="effect" column="Effect"/>
+        <result property="sideEffect" column="SideEffect"/>
+    </resultMap>
+
+    <select id="selectAllIngredients" resultMap="ingredientResultMap">
+        SELECT * FROM INGREDIENT
+    </select>
+
+    <!-- 약성분 조회 -->
+    <select id="getIngredientById" resultType="DrugIngredient" parameterType="int">
+        SELECT * FROM drug_ingredient WHERE id = #{id};
+    </select>
+
+    <insert id="insertIngredient" parameterType="Ingredient.IngredientDTO">
+        INSERT INTO INGREDIENT (IngredientName, Effect, SideEffect)
+        VALUES (#{ingredientName},#{ingredientName}, #{effect}, #{sideEffect})
+    </insert>
+
+    <update id="updateIngredient" parameterType="Ingredient.IngredientDTO">
+        UPDATE INGREDIENT
+        SET IngredientName = #{ingredientName},
+            Effect = #{effect},
+            SideEffect = #{sideEffect}
+        WHERE IngredientCode = #{ingredientCode}
+    </update>
+
+    <delete id="deleteIngredient" parameterType="_int">
+        DELETE FROM TBL_INGREDIENT WHERE IngredientCode = #{code}
+    </delete>
+</mapper>

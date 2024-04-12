@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration><!--mybatis의 설정을 포함하는 최상위 요소이다-->
+    <environments default="dev">
+        <!--데이터베이스 환경설정 dev라는 이름으로 환경을 기본으로 설정 -->
+        <environment id="dev">
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 커낵션 풀을 사용하여 데이터베이스와 연결되도록 pooled 타입 데이터소스-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/sahmyook_menudb"/>
+                <property name="username" value="sahmyook"/>
+                <property name="password" value="sahmyook"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="Ingredient/IngredientMapper.xml"/>
+        <!-- 매퍼로 등록한다-->
+    </mappers>
+
+</configuration>
