@@ -90,4 +90,16 @@
         FROM MEDICINE.MEMBER
         WHERE MEMBER_ID = #{member_id} AND MEMBER_PASSWORD = #{member_password}
     </select>
+
+
+
+    <select id="getMemberCodeAndName" resultType="map">
+        SELECT MEMBER_CODE, MEMBER_NAME
+        FROM MEDICINE.MEMBER
+                 LIMIT 1
+    </select>
+
+
+
+
 </mapper>

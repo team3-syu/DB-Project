@@ -119,6 +119,10 @@ public class MemberController {
     }
 
 
-}
+    public String getMemberCodeAndName() {
+        System.out.println("컨트롤러통과 getMemberCodeAndName");
 
+        return memberService.getMemberCodeAndName();
+    }
+}
 

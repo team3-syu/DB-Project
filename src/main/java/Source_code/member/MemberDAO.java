@@ -33,4 +33,10 @@ public class MemberDAO {
         return sqlSession.selectOne("MemberMapper.checkLogin", Map.of("member_id", member_id, "member_password", member_password));
 
 }
+
+
+    public Map<String, String> getMemberCodeAndName(SqlSession sqlSession) {
+        System.out.println("DAO통과 getMemberCodeAndName");
+        return sqlSession.selectOne("MemberMapper.getMemberCodeAndName");
+    }
 }
