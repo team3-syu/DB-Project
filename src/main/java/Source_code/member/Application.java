@@ -17,6 +17,7 @@ public class Application {
             System.out.println("1.로그인");
             System.out.println("2.회원 가입");
             System.out.println("9.프로그램 종료");
+            System.out.println("10. 문자열 테스트");
             System.out.print("원하는 번호를 입력하세요: ");
             int no = sc.nextInt();
 
@@ -24,6 +25,7 @@ public class Application {
                 case 1: memberLogin();break;
                 case 2: memberController.memberInsert(inputMember()); break;
                 case 9: System.out.println("===프로그램을 종료합니다===");return;
+                case 10: memberController.getMemberCodeAndName(); break;
                 default: System.out.println("잘못 입력 하셨습니다.");break;
             }
 
@@ -187,4 +189,6 @@ public class Application {
         int no = sc.nextInt();
 
     }
+
+
 }
