@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="IngredientMapper">
+    <resultMap id="ingredientResultMap" type="Source_code.Component.Ingredient.IngredientDTO">
+        <id property="id" column="id"/>
+        <result property="ingredientCode" column="IngredientCode"/>
+        <result property="ingredientName" column="IngredientName"/>
+        <result property="effect" column="Effect"/>
+        <result property="sideEffect" column="SideEffect"/>
+    </resultMap>
+
+    <select id="selectAllIngredients" resultMap="ingredientResultMap">
+        SELECT * FROM ingredients
+    </select>
+
+    <select id="getIngredientByCode" resultMap="ingredientResultMap" parameterType="int">
+        SELECT * FROM ingredients WHERE IngredientCode = #{code}
+    </select>
+
+    <insert id="insertIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">
+        INSERT INTO ingredients (IngredientCode, IngredientName, Effect, SideEffect)
+        VALUES (#{ingredientCode}, #{ingredientName}, #{effect}, #{sideEffect, jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">
+        UPDATE ingredients
+        SET IngredientName = #{ingredientName},
+            Effect = #{effect},
+            SideEffect = #{sideEffect}
+        WHERE IngredientCode = #{ingredientCode}
+    </update>
+
+    <delete id="deleteIngredient" parameterType="int">
+        DELETE FROM ingredients WHERE IngredientCode = #{code}
+    </delete>
+</mapper>
