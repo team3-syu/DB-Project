@@ -17,7 +17,7 @@ public class IngredientDTO {
         this.ingredientCode = ingredientCode;
         this.ingredientName = ingredientName;
         this.effect = effect;
-        this.sideEffect = sideEffect;
+        this.sideEffect = sideEffect == null ? "" : sideEffect;;
     }
 
     public int getId() {

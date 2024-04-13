@@ -5,28 +5,28 @@
         <id property="id" column="id"/>
         <result property="ingredientCode" column="IngredientCode"/>
         <result property="ingredientName" column="IngredientName"/>
-        <result property="effect" column="effect"/>
-        <result property="sideEffect" column="SideEffects"/>
+        <result property="effect" column="Effect"/>
+        <result property="sideEffect" column="SideEffect"/>
     </resultMap>
 
     <select id="selectAllIngredients" resultMap="ingredientResultMap">
         SELECT * FROM ingredients
     </select>
 
-    <select id="getIngredientById" resultMap="ingredientResultMap" parameterType="int">
-        SELECT * FROM ingredients WHERE id = #{id}
+    <select id="getIngredientByCode" resultMap="ingredientResultMap" parameterType="int">
+        SELECT * FROM ingredients WHERE IngredientCode = #{code}
     </select>
 
     <insert id="insertIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">
-        INSERT INTO ingredients (IngredientCode, IngredientName, effect, sideEffect)
-        VALUES (#{ingredientCode}, #{ingredientName}, #{effect}, #{sideEffect})
+        INSERT INTO ingredients (IngredientCode, IngredientName, Effect, SideEffect)
+        VALUES (#{ingredientCode}, #{ingredientName}, #{effect}, #{sideEffect, jdbcType=VARCHAR})
     </insert>
 
     <update id="updateIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">
         UPDATE ingredients
         SET IngredientName = #{ingredientName},
-            effect = #{effect},
-            sideEffect = #{sideEffect}
+            Effect = #{effect},
+            SideEffect = #{sideEffect}
         WHERE IngredientCode = #{ingredientCode}
     </update>
 

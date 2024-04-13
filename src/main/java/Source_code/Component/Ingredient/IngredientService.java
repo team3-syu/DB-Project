@@ -15,7 +15,7 @@ public class IngredientService {
 
 
     public List<IngredientDTO> selectAllIngredients() {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = Source_code.Component.Ingredient.Template.getSqlSession();
 
         List<IngredientDTO> menuList = ingredientDAO.selectAllIngredients(sqlSession);
 
@@ -25,7 +25,7 @@ public class IngredientService {
     }
 
     public boolean insertIngredient(IngredientDTO ingredient) {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = Source_code.Component.Ingredient.Template.getSqlSession();
 
         int result = ingredientDAO.insertIngredient(sqlSession, ingredient);
 
@@ -42,7 +42,7 @@ public class IngredientService {
 
     public boolean updateIngredient(IngredientDTO ingredient) {
 
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = Source_code.Component.Ingredient.Template.getSqlSession();
 
         int result = ingredientDAO.updateIngredient(sqlSession,ingredient);
 
@@ -58,7 +58,8 @@ public class IngredientService {
     }
 
     public boolean deleteIngredient(int code) {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = Source_code.Component.Ingredient.Template.getSqlSession();
+
 
         int result = ingredientDAO.deleteIngredient(sqlSession, code);
 
@@ -72,13 +73,10 @@ public class IngredientService {
 
         return result > 0? true: false;
     }
-    public IngredientDTO getIngredientById(int id) {
-        SqlSession sqlSession = getSqlSession();
-
-        IngredientDTO ingredient = ingredientDAO.getIngredientById(sqlSession, id);
-
+    public IngredientDTO getIngredientByCode(int code) {
+        SqlSession sqlSession = Source_code.Component.Ingredient.Template.getSqlSession();
+        IngredientDTO ingredient = ingredientDAO.getIngredientByCode(sqlSession, code);
         sqlSession.close();
-
         return ingredient;
     }
 }

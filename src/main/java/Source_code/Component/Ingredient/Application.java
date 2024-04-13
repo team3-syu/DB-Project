@@ -53,17 +53,18 @@ public class Application {
     private static Map<String, String> inputIngredientCode() {
         Scanner sc = new Scanner(System.in);
         System.out.print("약성분 코드를 입력하세요: ");
-        int code =sc.nextInt(); ;
+        String code = sc.nextLine().trim();
 
         Map<String, String> parameter = new HashMap<>();
-        parameter.put("code", String.valueOf(code));
+        parameter.put("code", code);
 
         return parameter;
     }
 
-
     private static Map<String, String> inputIngredient() {
         Scanner sc = new Scanner(System.in);
+        System.out.print("약성분 코드를 입력하세요: ");
+        String ingredientCode = sc.nextLine();
         System.out.print("약성분 이름을 입력하세요: ");
         String name = sc.nextLine();
         System.out.print("약성분 효능을 입력하세요: ");
@@ -72,6 +73,7 @@ public class Application {
         String sideEffect = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
+        parameter.put("ingredientCode", ingredientCode);
         parameter.put("name", name);
         parameter.put("effect", effect);
         parameter.put("sideEffect", sideEffect);
@@ -82,7 +84,7 @@ public class Application {
     private static Map<String, String> inputModifyIngredient() {
         Scanner sc = new Scanner(System.in);
         System.out.print("수정 대상 약성분 코드를 입력하세요: ");
-        String code = sc.nextLine();
+        String code = sc.nextLine().trim();
         System.out.print("수정할 약성분 이름을 입력하세요: ");
         String name = sc.nextLine();
         System.out.print("수정할 약성분 효능을 입력하세요: ");
@@ -98,6 +100,5 @@ public class Application {
 
         return parameter;
     }
-
 }
 
