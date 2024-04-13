@@ -1,6 +1,7 @@
 package Source_code.Booking;
 
 import java.util.List;
+import java.util.Map;
 
 public class BookingControler {
 
@@ -16,7 +17,6 @@ public class BookingControler {
         List<BookingDTO> myBookList = bookingService.selectMyBook();
         if(myBookList != null) {
             printResult.printMenuList(myBookList);
-
         }
 
 
@@ -24,9 +24,27 @@ public class BookingControler {
 
     }
 
-    public void inserBooking(){
+    public void inserBooking(Map<String, String> parameter) {
+
+        String memberCode = parameter.get("memberCode");
+        String bookMediName = parameter.get("bookMediName");
+        String bookMediCount = parameter.get("bookMediCount");
+        String bookDate = parameter.get("bookDate");
 
 
+        BookingDTO book = new BookingDTO();
+        book.setMem_code(Integer.parseInt(memberCode));
+        book.setMedi_name(bookMediName);
+        book.setMedi_count(Integer.parseInt(bookMediCount));
+        book.setBook_date(bookDate);
+
+
+        if(bookingService.insertMyBook(book)) {
+            System.out.println("성공");
+
+        } else {
+            System.out.println("실패");
+        }
 
     }
 }

@@ -12,40 +12,70 @@
         <result property="m_code" column="MEDI_CODE"/>
         <result property="medi_count" column="MEDI_COUNT"/>
         <result property="book_status" column="BOOK_STATUS"/>
+        <collection property="member_id" resultMap="memberResultMap"/>
+        <collection property="member_name" resultMap="memberResultMap"/>
+        <collection property="amount" resultMap="medicineResultMap"/>
+        <collection property="name" resultMap="medicineResultMap"/>
+        <collection property="code" resultMap="medicineResultMap"/>
+
+
+    </resultMap>
+    <resultMap type="Source_code.member.MemberDTO" id="memberResultMap">
+        <id property="member_code" column="member_code"/>
+        <result property="member_id" column="member_id"/>
+        <result property="member_password" column="member_password"/>
+        <result property="member_name" column="member_name"/>
+        <result property="member_phone" column="member_phone"/>
+        <result property="member_birthday" column="member_birthday"/>
+        <result property="member_gender" column="member_gender"/>
+        <result property="member_email" column="member_email"/>
+    </resultMap>
+    <resultMap type="Source_code.Medicine.MedicineDTO" id="medicineResultMap">
+        <id property="code" column="m_code"/>
+        <result property="name" column="m_name"/>
+        <result property="component" column="m_component"/>
+        <result property="effect" column="m_effect"/>
+        <result property="sideEffect" column="m_side_effect"/>
+        <result property="amount" column="m_amount"/>
+        <result property="strong" column="m_strong"/>
     </resultMap>
 
 
 
     <select id="selectMyBook" resultMap="bookResultMap">
-        SELECT * FROM BOOKING
+        select b.book_code,b.book_date,m.member_id,m.member_name,md.m_name,b.medi_count,book_status
+        from booking b
+        join member m on b.mem_code=m.member_code
+        join medicine md on md.m_code = b.medi_code
+        where m.member_code like '1';
 
 
     </select>
 
-  <!--  <select id="selectMyBook" resultMap="bookResultMap">
-        SELECT * FROM booking b
-                    JOIN member m ON m.member_code = b.mem_code
-                    JOIN medicine md ON md.m_code = b.medi_code;
+    <!--  <select id="selectMyBook" resultMap="bookResultMap">
+          SELECT * FROM booking b
+                      JOIN member m ON m.member_code = b.mem_code
+                      JOIN medicine md ON md.m_code = b.medi_code;
 
-    </select>
-    &lt;!&ndash; 파라미터가 한 개인 경우 바인딩 되는 이름은 상관 없으며, 파라미터 타입을 지정하지 않아도 된다.
-         - resultMap : 위에서 생성한 resultMap을 리턴 타입으로 이용하는 경우
-         - resultType : 이미 정의되어 있는 타입을 이용하여 리턴 타입으로 이용하는 경우 &ndash;&gt;
-    <select id="selectMenuByCode" parameterType="_int" resultMap="menuResultMap">
-        SELECT  MENU_CODE
-             , MENU_NAME
-             , MENU_PRICE
-             , CATEGORY_CODE
-             , ORDERABLE_STATUS
-        FROM  TBL_MENU
-        WHERE  ORDERABLE_STATUS = 'Y'
-          AND  MENU_CODE = #{ code }
-    </select>
+      </select>
+      &lt;!&ndash; 파라미터가 한 개인 경우 바인딩 되는 이름은 상관 없으며, 파라미터 타입을 지정하지 않아도 된다.
+           - resultMap : 위에서 생성한 resultMap을 리턴 타입으로 이용하는 경우
+           - resultType : 이미 정의되어 있는 타입을 이용하여 리턴 타입으로 이용하는 경우 &ndash;&gt;
+      <select id="selectMenuByCode" parameterType="_int" resultMap="menuResultMap">
+          SELECT  MENU_CODE
+               , MENU_NAME
+               , MENU_PRICE
+               , CATEGORY_CODE
+               , ORDERABLE_STATUS
+          FROM  TBL_MENU
+          WHERE  ORDERABLE_STATUS = 'Y'
+            AND  MENU_CODE = #{ code }
+      </select>
 
--->
+  -->
 
     <insert id="insertMenu" parameterType="Source_code.Booking.BookingDTO">
-        INSERT INTO TBL_MENU (
+        INSERT INTO BOOKING (
                                BOOK_DATE
                              ,MEM_CODE
                              ,MEDI_CODE
@@ -53,24 +83,31 @@
                              ,BOOK_STATUS
         )
         VALUES (
-                 #{book_date}
+                 #{ book_date}
                , #{ mem_code }
-               , (SELECT m_code FROM MEDICINE WHERE m_name like #{ mem_name })
+               , (SELECT m_code FROM MEDICINE WHERE m_name like #{medi_name})
                , #{ medi_count }
                , 'N'
+
                )
     </insert>
-<!--
-    <update id="updateMenu" parameterType="com.ohgiraffers.section03.xmlconfig.MenuDTO">
-        UPDATE  TBL_MENU
-        SET  MENU_NAME = #{ name }
-          , MENU_PRICE = #{ price }
+
+    <update id="updateBook" parameterType="Source_code.Medicine.MedicineDTO">
+        UPDATE  MEDICINE
+        SET  M_AMOUNT = #{ amount }
         WHERE  MENU_CODE = #{ code }
     </update>
+    <!--
+        <update id="updateMenu" parameterType="com.ohgiraffers.section03.xmlconfig.MenuDTO">
+            UPDATE  TBL_MENU
+            SET  MENU_NAME = #{ name }
+              , MENU_PRICE = #{ price }
+            WHERE  MENU_CODE = #{ code }
+        </update>
 
-    <delete id="deleteMenu" parameterType="_int">
-        DELETE
-        FROM TBL_MENU
-        WHERE MENU_CODE = #{ code }
-    </delete>-->
+        <delete id="deleteMenu" parameterType="_int">
+            DELETE
+            FROM TBL_MENU
+            WHERE MENU_CODE = #{ code }
+        </delete>-->
 </mapper>

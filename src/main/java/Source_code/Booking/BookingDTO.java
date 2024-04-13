@@ -1,14 +1,31 @@
 package Source_code.Booking;
 
-import java.util.Date;
-
 public class BookingDTO {
  private int book_code;
- private Date book_date;
+ private String book_date;
  private int mem_code;
  private String m_code;
  private int medi_count;
  private char book_status;
+
+ private String mem_name;
+ private String medi_name;
+
+    public String getMem_name() {
+        return mem_name;
+    }
+
+    public void setMem_name(String mem_name) {
+        this.mem_name = mem_name;
+    }
+
+    public String getMedi_name() {
+        return medi_name;
+    }
+
+    public void setMedi_name(String medi_name) {
+        this.medi_name = medi_name;
+    }
 
     public int getBook_code() {
         return book_code;
@@ -18,11 +35,11 @@ public class BookingDTO {
         this.book_code = book_code;
     }
 
-    public Date getBook_date() {
+    public String getBook_date() {
         return book_date;
     }
 
-    public void setBook_date(Date book_date) {
+    public void setBook_date(String book_date) {
         this.book_date = book_date;
     }
 

@@ -26,7 +26,7 @@ public class Booking {
 
         switch (SelectMenu){
             case 1 : bookingControler.selectMyBook();break;
-            case 2 : bookingControler.inserBooking();break;
+            case 2 : bookingControler.inserBooking(inputMenu());break;
             case 9 : break;
 
         }
@@ -48,9 +48,9 @@ public class Booking {
         LocalDate date = LocalDate.now();
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("구매하실 약 이름을 입력하세요 : ");
+        System.out.print("예약하실 약 이름을 입력하세요 : ");
         String bookMediName = sc.nextLine();
-        System.out.print("구매할 약의 개수를 입력하세요 : ");
+        System.out.print("예약할 약의 개수를 입력하세요 : ");
         String bookMediCount = sc.nextLine();
 
 
@@ -58,6 +58,7 @@ public class Booking {
         parameter.put("bookDate", String.valueOf(date));
         parameter.put("bookMediName", bookMediName);
         parameter.put("bookMediCount", bookMediCount);
+        parameter.put("memberCode","12");
 
 
         return parameter;

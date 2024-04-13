@@ -13,6 +13,7 @@ public class BookingDAO {
 
     public int insertMenu(SqlSession sqlSession, BookingDTO book) {
         return sqlSession.insert("BookMapper.insertMenu", book);
+
     }
 
     public int updateMenu(SqlSession sqlSession, BookingDTO menu) {
