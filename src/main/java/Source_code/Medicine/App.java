@@ -14,7 +14,7 @@ public class App {
 
         do {
             System.out.println("========== 약 관리 ==========");
-            System.out.println("1. 전체 약 조회");
+            System.out.println("1. 약 조회");
             System.out.println("2. 신규 약 추가");
             System.out.println("3. 기존 약 변경");
             System.out.println("4. 기존 약 삭제");
@@ -25,7 +25,7 @@ public class App {
 
             switch (no) {
                 case 1:
-                    medicineController.selectAllMedicine();
+                    medicineMenu();
                     break;
                 case 2:
                     medicineController.registMedicine(inputMedicine());
@@ -47,6 +47,51 @@ public class App {
 
 
     }
+
+    private static void medicineMenu() {
+        Scanner scanner = new Scanner(System.in);
+        MedicineController medicineController = new MedicineController();
+
+        do {
+            System.out.println("========== 약 조회 ==========");
+            System.out.println("1. 약 전체 조회");
+            System.out.println("2. 이름으로 약 조회");
+            System.out.println("3. 효능으로 약 조회");
+            System.out.println("4. 성분으로 약 조회");
+            System.out.println("5. 부작용으로 약 조회");
+            System.out.println("9. 프로그램 종료");
+            System.out.println("=========================");
+            System.out.println("약 조회 번호를 입력하세요 : ");
+            int no = scanner.nextInt();
+
+            switch (no) {
+                case 1:
+                    medicineController.selectAllMedicine();
+                    break;
+                case 2:
+                    medicineController.selectNameMedicine(selectName());
+                    break;
+                case 3:
+                    medicineController.selectEffectMedicine(selectEffect());
+                    break;
+                case 4:
+                    medicineController.selectComponentMedicine(selectComponent());
+                    break;
+                case 5:
+                    medicineController.selectSideEffectMedicine(selectSideEffect());
+                    break;
+                case 9:
+                    return;
+                default:
+                    System.out.println("잘못된 조회 번호입니다.");
+                    break;
+            }
+
+        } while (true);
+
+
+    }
+
 
 
     private static Map<String, String> inputMedicine() {
@@ -119,5 +164,52 @@ public class App {
 
         return parameter;
     }
+
+    private static Map<String, String> selectName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("검색할 약 이름을 입력하세요 : ");
+        String name = scanner.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("name", name);
+
+        return parameter;
+    }
+
+    private static Map<String, String> selectEffect() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("검색할 약 효능을 입력하세요 : ");
+        String effect = scanner.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("effect", effect);
+
+        return parameter;
+    }
+
+    private static Map<String, String> selectComponent() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("검색할 약 성분을 입력하세요 : ");
+        String component = scanner.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("component", component);
+
+        return parameter;
+    }
+
+    private static Map<String, String> selectSideEffect() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("검색할 약 부작용을 입력하세요 : ");
+        String sideEffect = scanner.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("sideEffect", sideEffect);
+
+        return parameter;
+    }
+
+
+
 
 }

@@ -69,4 +69,50 @@ public class MedicineService {
 
         return result > 0 ? true : false;
     }
+
+    public List<MedicineDTO> selectNameMedicine(String name) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        List<MedicineDTO> medicineList = medicineDAO.selectNameMedicine(sqlSession, name);
+
+        sqlSession.close();
+
+        return medicineList;
+    }
+
+    public List<MedicineDTO> selectComponentMedicine(String component) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        List<MedicineDTO> medicineList = medicineDAO.selectComponentMedicine(sqlSession, component);
+
+        sqlSession.close();
+
+        return medicineList;
+    }
+
+    public List<MedicineDTO> selectEffectMedicine(String effect) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        List<MedicineDTO> medicineList = medicineDAO.selectEffectMedicine(sqlSession, effect);
+
+        sqlSession.close();
+
+        return medicineList;
+    }
+
+    public List<MedicineDTO> selectSideEffectMedicine(String sideEffect) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        List<MedicineDTO> medicineList = medicineDAO.selectSideEffectMedicine(sqlSession, sideEffect);
+
+        sqlSession.close();
+
+        return medicineList;
+    }
+
+
 }

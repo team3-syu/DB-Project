@@ -22,4 +22,23 @@ public class MedicineDAO {
         return sqlSession.delete("MedicineMapper.deleteMedicine", code);
     }
 
+    public List<MedicineDTO> selectNameMedicine(SqlSession sqlSession, String name) {
+        return sqlSession.selectList("MedicineMapper.selectNameMedicine", name);
+    }
+
+    public List<MedicineDTO> selectComponentMedicine(SqlSession sqlSession, String component) {
+        return sqlSession.selectList("MedicineMapper.selectComponentMedicine", component);
+    }
+
+    public List<MedicineDTO> selectEffectMedicine(SqlSession sqlSession, String effect) {
+        return sqlSession.selectList("MedicineMapper.selectEffectMedicine", effect);
+    }
+
+    public List<MedicineDTO> selectSideEffectMedicine(SqlSession sqlSession, String sideEffect) {
+        return sqlSession.selectList("MedicineMapper.selectNameMedicine", sideEffect);
+    }
+
+
+
+
 }
