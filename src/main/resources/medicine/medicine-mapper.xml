@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MedicineMapper">
+    <resultMap type="Source_code.Medicine.MedicineDTO" id="medicineResultMap">
+        <id property="code" column="m_code"/>
+        <result property="name" column="m_name"/>
+        <result property="component" column="m_component"/>
+        <result property="effect" column="m_effect"/>
+        <result property="sideEffect" column="m_side_effect"/>
+        <result property="amount" column="m_amount"/>
+        <result property="strong" column="m_strong"/>
+    </resultMap>
+
+
+    <select id="selectAllMedicine" resultMap="medicineResultMap">
+        SELECT *
+        FROM medicine
+    </select>
+
+
+    <insert id="insertMedicine" parameterType="Source_code.Medicine.MedicineDTO">
+        INSERT INTO medicine
+        VALUES (
+        #{ code },
+        #{ name },
+        #{ component },
+        #{ effect },
+        #{ sideEffect },
+        #{ amount },
+        #{ strong }
+        )
+    </insert>
+
+    <update id="updateMedicine" parameterType="Source_code.Medicine.MedicineDTO">
+        UPDATE medicine
+        SET m_name = #{ name },
+            m_component = #{ component },
+            m_effect = #{ effect },
+            m_side_effect = #{ sideEffect },
+            m_amount = #{ amount },
+            m_strong = #{ strong }
+        WHERE  m_code = #{ code }
+    </update>
+
+    <delete id="deleteMedicine" parameterType="Source_code.Medicine.MedicineDTO">
+        DELETE
+        FROM medicine
+        WHERE m_code = #{ code }
+    </delete>
+
+    <select id="selectNameMedicine" resultMap="medicineResultMap" parameterType="Source_code.Medicine.MedicineDTO">
+        SELECT *
+        FROM medicine
+        WHERE m_name like CONCAT('%',#{name},'%')
+    </select>
+
+    <select id="selectComponentMedicine" resultMap="medicineResultMap" parameterType="Source_code.Medicine.MedicineDTO">
+        SELECT *
+        FROM medicine
+        WHERE m_component like CONCAT('%',#{component},'%')
+    </select>
+
+    <select id="selectEffectMedicine" resultMap="medicineResultMap" parameterType="Source_code.Medicine.MedicineDTO">
+        SELECT *
+        FROM medicine
+        WHERE m_effect like CONCAT('%',#{effect},'%')
+    </select>
+
+    <select id="selectSideEffectMedicine" resultMap="medicineResultMap" parameterType="Source_code.Medicine.MedicineDTO">
+        SELECT *
+        FROM medicine
+        WHERE m_side_effect like CONCAT('%',#{sideEffect},'%')
+    </select>
+
+
+
+</mapper>
