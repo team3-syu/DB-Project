@@ -1,42 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="IngredientMapper">
-
     <resultMap id="ingredientResultMap" type="Source_code.Component.Ingredient.IngredientDTO">
-        <id property="ingredientCode" column="IngredientCode"/>
+        <id property="id" column="id"/>
+        <result property="ingredientCode" column="IngredientCode"/>
         <result property="ingredientName" column="IngredientName"/>
-        <result property="effect" column="Effect"/>
+        <result property="effect" column="effect"/>
         <result property="sideEffect" column="SideEffects"/>
     </resultMap>
 
     <select id="selectAllIngredients" resultMap="ingredientResultMap">
-        SELECT *
-        FROM ingredient
+        SELECT * FROM ingredients
     </select>
 
-    <!-- 약성분 코드로 조회 -->
-    <select id="selectIngredientByCode" parameterType="int" resultMap="ingredientResultMap">
-        SELECT *
-        FROM ingredient
-        WHERE IngredientCode = #{value}
+    <select id="getIngredientById" resultMap="ingredientResultMap" parameterType="int">
+        SELECT * FROM ingredients WHERE id = #{id}
     </select>
 
     <insert id="insertIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">
-        INSERT INTO ingredient (IngredientName, Effect, SideEffects)
-        VALUES (#{ingredientName}, #{effect}, #{sideEffect})
+        INSERT INTO ingredients (IngredientCode, IngredientName, effect, sideEffect)
+        VALUES (#{ingredientCode}, #{ingredientName}, #{effect}, #{sideEffect})
     </insert>
 
     <update id="updateIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">
-        UPDATE ingredient
+        UPDATE ingredients
         SET IngredientName = #{ingredientName},
-            Effect = #{effect},
-            SideEffects = #{sideEffect}
+            effect = #{effect},
+            sideEffect = #{sideEffect}
         WHERE IngredientCode = #{ingredientCode}
     </update>
 
     <delete id="deleteIngredient" parameterType="int">
-        DELETE FROM ingredient WHERE IngredientCode = #{value}
+        DELETE FROM ingredients WHERE IngredientCode = #{code}
     </delete>
 </mapper>
