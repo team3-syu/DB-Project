@@ -5,15 +5,15 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.List;
 
 public class IngredientDAO {
-    public static List<IngredientDTO> selectAllIngredients(SqlSession sqlSession) {
+    public List<IngredientDTO> selectAllIngredients(SqlSession sqlSession) {
         return sqlSession.selectList("IngredientMapper.selectAllIngredients");
     }
 
-    public IngredientDTO selectIngredientByCode(SqlSession sqlSession, int code) {
-        return sqlSession.selectOne("IngredientMapper.selectIngredientByCode", code);
+    public IngredientDTO getIngredientById(SqlSession sqlSession, int id) {
+        return sqlSession.selectOne("IngredientMapper.getIngredientByCode", id);
     }
 
-    public static int insertIngredient(SqlSession sqlSession, IngredientDTO ingredient) {
+    public int insertIngredient(SqlSession sqlSession, IngredientDTO ingredient) {
         return sqlSession.insert("IngredientMapper.insertIngredient", ingredient);
     }
 

@@ -3,9 +3,9 @@ package Source_code.Component.Ingredient;
 import java.util.List;
 
 public class PrintResult {
-    public void printMenuList(List<IngredientDTO> menuList) {
-        for(IngredientDTO menu : menuList) {
-            System.out.println(menu);
+    public void printIngredientList(List<IngredientDTO> ingredientList) {
+        for(IngredientDTO ingredientDTO : ingredientList) {
+            System.out.println(ingredientDTO);
         }
     }
 

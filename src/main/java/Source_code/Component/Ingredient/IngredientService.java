@@ -10,11 +10,11 @@ public class IngredientService {
     private final IngredientDAO ingredientDAO;
 
     public IngredientService() {
-       ingredientDAO= new IngredientDAO();
+        ingredientDAO= new IngredientDAO();
     }
 
 
-    public List<IngredientDTO> getAllIngredients() {
+    public List<IngredientDTO> selectAllIngredients() {
         SqlSession sqlSession = getSqlSession();
 
         List<IngredientDTO> menuList = ingredientDAO.selectAllIngredients(sqlSession);
@@ -24,10 +24,10 @@ public class IngredientService {
         return menuList;
     }
 
-    public static boolean insertIngredient(IngredientDTO ingredient) {
+    public boolean insertIngredient(IngredientDTO ingredient) {
         SqlSession sqlSession = getSqlSession();
 
-        int result = IngredientDAO.insertIngredient(sqlSession, ingredient);
+        int result = ingredientDAO.insertIngredient(sqlSession, ingredient);
 
         if(result > 0) {
             sqlSession.commit();
@@ -40,11 +40,11 @@ public class IngredientService {
         return result > 0? true: false;
     }
 
-    public static boolean updateIngredient(IngredientDTO ingredient) {
+    public boolean updateIngredient(IngredientDTO ingredient) {
 
         SqlSession sqlSession = getSqlSession();
 
-        int result = IngredientDAO.updateIngredient(sqlSession,ingredient);
+        int result = ingredientDAO.updateIngredient(sqlSession,ingredient);
 
         if(result > 0) {
             sqlSession.commit();
@@ -57,10 +57,10 @@ public class IngredientService {
         return result > 0? true: false;
     }
 
-    public static boolean deleteIngredient(int code) {
+    public boolean deleteIngredient(int code) {
         SqlSession sqlSession = getSqlSession();
 
-        int result = IngredientDAO.deleteIngredient(sqlSession, code);
+        int result = ingredientDAO.deleteIngredient(sqlSession, code);
 
         if(result > 0) {
             sqlSession.commit();
@@ -72,10 +72,13 @@ public class IngredientService {
 
         return result > 0? true: false;
     }
-
-    public static IngredientDTO getIngredientByCode(int code) {
+    public IngredientDTO getIngredientById(int id) {
         SqlSession sqlSession = getSqlSession();
-        IngredientMapper ingredientMapper = sqlSession.getMapper(IngredientMapper.class);
-        return ingredientMapper.getIngredientByCode(code);
+
+        IngredientDTO ingredient = ingredientDAO.getIngredientById(sqlSession, id);
+
+        sqlSession.close();
+
+        return ingredient;
     }
 }

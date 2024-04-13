@@ -13,7 +13,7 @@ public class Template {
     public static SqlSession getSqlSession() {
 
         if(sqlSessionFactory == null) {
-            String resource = "Ingredinet/mybatis-config.xml";
+            String resource = "Source_code/Ingredient/mybatis-config.xml";
             try {
                 InputStream inputStream = Resources.getResourceAsStream(resource);
                 sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);

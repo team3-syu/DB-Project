@@ -4,37 +4,39 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="IngredientMapper">
 
-
-    <resultMap id="ingredientResultMap" type="Ingredient.IngredientDTO">
+    <resultMap id="ingredientResultMap" type="Source_code.Component.Ingredient.IngredientDTO">
         <id property="ingredientCode" column="IngredientCode"/>
         <result property="ingredientName" column="IngredientName"/>
         <result property="effect" column="Effect"/>
-        <result property="sideEffect" column="SideEffect"/>
+        <result property="sideEffect" column="SideEffects"/>
     </resultMap>
 
     <select id="selectAllIngredients" resultMap="ingredientResultMap">
-        SELECT * FROM INGREDIENT
+        SELECT *
+        FROM ingredient
     </select>
 
-    <!-- 약성분 조회 -->
-    <select id="getIngredientById" resultType="DrugIngredient" parameterType="int">
-        SELECT * FROM drug_ingredient WHERE id = #{id};
+    <!-- 약성분 코드로 조회 -->
+    <select id="selectIngredientByCode" parameterType="int" resultMap="ingredientResultMap">
+        SELECT *
+        FROM ingredient
+        WHERE IngredientCode = #{value}
     </select>
 
-    <insert id="insertIngredient" parameterType="Ingredient.IngredientDTO">
-        INSERT INTO INGREDIENT (IngredientName, Effect, SideEffect)
-        VALUES (#{ingredientName},#{ingredientName}, #{effect}, #{sideEffect})
+    <insert id="insertIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">
+        INSERT INTO ingredient (IngredientName, Effect, SideEffects)
+        VALUES (#{ingredientName}, #{effect}, #{sideEffect})
     </insert>
 
-    <update id="updateIngredient" parameterType="Ingredient.IngredientDTO">
-        UPDATE INGREDIENT
+    <update id="updateIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">
+        UPDATE ingredient
         SET IngredientName = #{ingredientName},
             Effect = #{effect},
-            SideEffect = #{sideEffect}
+            SideEffects = #{sideEffect}
         WHERE IngredientCode = #{ingredientCode}
     </update>
 
-    <delete id="deleteIngredient" parameterType="_int">
-        DELETE FROM TBL_INGREDIENT WHERE IngredientCode = #{code}
+    <delete id="deleteIngredient" parameterType="int">
+        DELETE FROM ingredient WHERE IngredientCode = #{value}
     </delete>
 </mapper>

@@ -53,13 +53,14 @@ public class Application {
     private static Map<String, String> inputIngredientCode() {
         Scanner sc = new Scanner(System.in);
         System.out.print("약성분 코드를 입력하세요: ");
-        String code = sc.nextLine();
+        int code =sc.nextInt(); ;
 
         Map<String, String> parameter = new HashMap<>();
-        parameter.put("code", code);
+        parameter.put("code", String.valueOf(code));
 
         return parameter;
     }
+
 
     private static Map<String, String> inputIngredient() {
         Scanner sc = new Scanner(System.in);

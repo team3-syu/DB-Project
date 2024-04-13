@@ -13,32 +13,34 @@ public class IngredientController {
     }
 
     public void selectAllIngredients() {
-        List<IngredientDTO> ingredientList = ingredientService.getAllIngredients();
+
+        List<IngredientDTO> ingredientList = ingredientService.selectAllIngredients();
 
         if(ingredientList != null) {
-            printResult.printMenuList(ingredientList);
+            printResult. printIngredientList(ingredientList);
         } else {
             printResult.printErrorMessage("selectList");
         }
     }
 
-    public void selectIngredientByCode(Map<String, String> stringStringMap) {
-        int code = Integer.parseInt(stringStringMap.get("ingredientCode"));
+    public void selectIngredientByCode(Map<String, String> parameter) {
+        int id = Integer.parseInt(parameter.get("id"));
 
-        IngredientDTO ingredient = IngredientService.getIngredientByCode(code);
 
-        if(ingredient != null) {
+        IngredientDTO ingredient = ingredientService.getIngredientById(id);
+        if (ingredient != null) {
             printResult.printIngredient(ingredient);
         } else {
             printResult.printErrorMessage("selectOne");
         }
-    }
+        }
+
 
     public void deleteIngredient(Map<String, String> stringStringMap) {
 
         int code = Integer.parseInt(stringStringMap.get("ingredientCode"));
 
-        if(IngredientService.deleteIngredient(code)) {
+        if(ingredientService.deleteIngredient(code)) {
             printResult.printSuccessMessage("delete");
 
         } else {
@@ -47,11 +49,13 @@ public class IngredientController {
 
     }
 
-    public void insertIngredient(Map<String, String> stringStringMap) {
-        int code = Integer.parseInt(stringStringMap.get("ingredientCode"));
+    public void insertIngredient(Map<String, String> stringStringMap)  {
+        String codeStr = stringStringMap.get("ingredientCode");
+    if (codeStr != null) {
+        int code = Integer.parseInt(codeStr);
         String name = stringStringMap.get("ingredientName");
         String effect = stringStringMap.get("effect");
-        String sideEffect = stringStringMap.get("sideeffect");
+        String sideEffect = stringStringMap.get("sideEffect");
 
         IngredientDTO ingredient = new IngredientDTO();
         ingredient.setIngredientCode(code);
@@ -59,20 +63,21 @@ public class IngredientController {
         ingredient.setEffect(effect);
         ingredient.setSideEffect(sideEffect);
 
-        if(IngredientService.insertIngredient(ingredient)) {
+        if (ingredientService.insertIngredient(ingredient)) {
             printResult.printSuccessMessage("insert");
-
         } else {
             printResult.printErrorMessage("insert");
         }
-
+    } else {
+        printResult.printErrorMessage("insert");
     }
+}
 
     public void updateIngredient(Map<String, String> stringStringMap) {
         int code = Integer.parseInt(stringStringMap.get("ingredientCode"));
         String name = stringStringMap.get("ingredientName");
         String effect = stringStringMap.get("effect");
-        String sideEffect = stringStringMap.get("sideeffect");
+        String sideEffect = stringStringMap.get("sideEffect");
 
         IngredientDTO ingredient = new IngredientDTO();
         ingredient.setIngredientCode(code);
@@ -80,7 +85,7 @@ public class IngredientController {
         ingredient.setEffect(effect);
         ingredient.setSideEffect(sideEffect);
 
-        if(IngredientService.updateIngredient(ingredient)) {
+        if(ingredientService.updateIngredient(ingredient)) {
             printResult.printSuccessMessage("update");
         } else {
             printResult.printErrorMessage("update");
