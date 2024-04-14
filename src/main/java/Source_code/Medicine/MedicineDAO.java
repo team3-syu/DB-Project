@@ -35,7 +35,7 @@ public class MedicineDAO {
     }
 
     public List<MedicineDTO> selectSideEffectMedicine(SqlSession sqlSession, String sideEffect) {
-        return sqlSession.selectList("MedicineMapper.selectNameMedicine", sideEffect);
+        return sqlSession.selectList("MedicineMapper.selectSideEffectMedicine", sideEffect);
     }
 
 
