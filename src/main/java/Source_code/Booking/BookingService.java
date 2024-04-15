@@ -19,9 +19,9 @@ public class BookingService {
 
 
     public List<BookingDTO> selectMyBook(){
-        System.out.println("서비스 통과");
+
         SqlSession sqlSession = getSqlSession();
-        System.out.println("sql연결");
+
         List<BookingDTO> bookList = bookingDAO.selectMyBook(sqlSession);
 
         sqlSession.close();
@@ -46,6 +46,40 @@ public class BookingService {
 
         return result > 0 ? true : false;
      }
+
+    public boolean deleteMyBook(BookingDTO book) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        int result = bookingDAO.deleteBook(sqlSession, book);
+        System.out.println(result);
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
+    public boolean updateMyBook(BookingDTO book) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        int result = bookingDAO.updateBook(sqlSession, book);
+        System.out.println(result);
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
     }
 
 

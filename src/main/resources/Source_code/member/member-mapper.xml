@@ -93,10 +93,10 @@
 
 
 
-    <select id="getMemberCodeAndName" resultType="map">
-        SELECT MEMBER_CODE, MEMBER_NAME
+    <select id="getMemberCodeAndName" resultMap="memberResultMap">
+        SELECT MEMBER_CODE
         FROM MEDICINE.MEMBER
-                 LIMIT 1
+        where MEMBER_ID like #{member_id} and MEMBER_PASSWORD like #{member_password}
     </select>
 
 

@@ -11,6 +11,56 @@ public class BookingDTO {
  private String mem_name;
  private String medi_name;
 
+ private String member_id;
+
+ private String member_name;
+
+ private int amount;
+
+ private String name;
+
+ private String code;
+
+    public String getMember_id() {
+        return member_id;
+    }
+
+    public void setMember_id(String member_id) {
+        this.member_id = member_id;
+    }
+
+    public String getMember_name() {
+        return member_name;
+    }
+
+    public void setMember_name(String member_name) {
+        this.member_name = member_name;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String getMem_name() {
         return mem_name;
     }
@@ -73,5 +123,24 @@ public class BookingDTO {
 
     public void setBook_status(char book_status) {
         this.book_status = book_status;
+    }
+
+    @Override
+    public String toString() {
+        return "예약조회{" +
+                "예약 코드=" + book_code +
+                ", 예약 날짜='" + book_date + '\'' +
+                ", 고객 번호=" + mem_code +
+                ", 약 코드='" + m_code + '\'' +
+                ", 약 재고=" + medi_count +
+                ", 예약 상태=" + book_status +
+                ", 고객 이름='" + mem_name + '\'' +
+                ", 약 이름='" + medi_name + '\'' +
+                ", 고객 id='" + member_id + '\'' +
+                ", 고객 이름='" + member_name + '\'' +
+                ", 총량=" + amount +
+                ", 약이름='" + name + '\'' +
+                ", 약코드='" + code + '\'' +
+                '}';
     }
 }

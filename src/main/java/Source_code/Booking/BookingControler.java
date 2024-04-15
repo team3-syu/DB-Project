@@ -18,12 +18,37 @@ public class BookingControler {
         if(myBookList != null) {
             printResult.printMenuList(myBookList);
         }
+        else{
+            System.out.println("약이름을 잘못입력했습니다");
+        }
 
 
         System.out.println("컨트롤러통과");
 
     }
+    public void deleteMyBook(String deleteCode){
+        BookingDTO book = new BookingDTO();
+        book.setBook_code(Integer.parseInt(deleteCode));
+        if(bookingService.deleteMyBook(book)) {
+            System.out.println("성공");
 
+        } else {
+            System.out.println("실패");
+        }
+
+    }
+
+    public void updateBookStatus(String updateBook){
+        BookingDTO book = new BookingDTO();
+        book.setBook_code(Integer.parseInt(updateBook));
+        if(bookingService.updateMyBook(book)) {
+            System.out.println("성공");
+
+        } else {
+            System.out.println("실패");
+        }
+
+    }
     public void inserBooking(Map<String, String> parameter) {
 
         String memberCode = parameter.get("memberCode");

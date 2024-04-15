@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class medicine {
+public class Medicine {
 
     public static void medicineStart() {
 
@@ -47,7 +47,7 @@ public class medicine {
 
     }
 
-    private static void medicineMenu() {
+    public static void medicineMenu() {
         Scanner scanner = new Scanner(System.in);
         MedicineController medicineController = new MedicineController();
 

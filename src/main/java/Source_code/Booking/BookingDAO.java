@@ -7,7 +7,7 @@ import java.util.List;
 public class BookingDAO {
 
     public List<BookingDTO> selectMyBook(SqlSession sqlSession) {
-        System.out.println("dao 접근");
+
         return sqlSession.selectList("BookMapper.selectMyBook");
     }
 
@@ -16,8 +16,18 @@ public class BookingDAO {
 
     }
 
-    public int updateMenu(SqlSession sqlSession, BookingDTO menu) {
-        return sqlSession.update("MenuMapper.updateMenu", menu);
+    public int deleteBook(SqlSession sqlSession, BookingDTO book) {
+
+
+        return sqlSession.delete("BookMapper.deleteMenu", book);
+
+    }
+
+    public int updateBook(SqlSession sqlSession, BookingDTO book) {
+
+
+        return sqlSession.update("BookMapper.updateBook", book);
+
     }
 
 }

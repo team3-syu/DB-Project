@@ -98,26 +98,23 @@ public class MemberService {
 
 
 
-    public String getMemberCodeAndName() {
+    public String getMemberCodeAndName(MemberDTO login_member) {
         try (SqlSession sqlSession = Template.getSqlSession()) {
             System.out.println("서비스통과 getMemberCodeAndName");
             // 회원 코드와 이름을 가져오는 쿼리 실행
-            Map <String, String> map = memberDAO.getMemberCodeAndName(sqlSession);
+            MemberDTO memberDTO = memberDAO.getMemberCodeAndName(sqlSession, login_member);
+            int memberCode = memberDTO.getMember_code();
+            System.out.println(memberCode);
+            return String.valueOf(memberCode);
 
-            // 회원 코드와 이름을 문자열로 변환하여 반환
-            if (map != null) {
-                return "회원 코드: " + map.get("member_code") + ", 회원 이름: " + map.get("member_name");
-
-            } else {
-                return "회원 정보를 가져올 수 없습니다.";
-
-            }
         } catch (Exception e) {
             e.printStackTrace();
 
-            return null;
 
         }
+         return null;
     }
 
+
 }
+

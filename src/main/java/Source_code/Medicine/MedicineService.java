@@ -6,7 +6,8 @@ import java.util.List;
 
 import static Source_code.Medicine.Template.getSqlSession;
 
-public class MedicineService {
+public class
+MedicineService {
 
     private final MedicineDAO medicineDAO;
 

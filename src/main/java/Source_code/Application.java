@@ -1,12 +1,11 @@
 package Source_code;
 
-import static Source_code.Medicine.medicine.medicineStart;
+import java.util.Scanner;
+
+
+import static Source_code.Component.Ingredient.Ingredient.startIngredient;
+import static Source_code.Medicine.Medicine.medicineStart;
 
 public class Application {
-    public static void main(String[] args) {
 
-        //medicine 패키지 실행
-        medicineStart();
-
-    }
 }

@@ -1,14 +1,12 @@
 package Source_code.Component.Ingredient;
 
-import Source_code.Component.Ingredient.IngredientController;
-
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Application {
-    public static void main(String[] args) {
+public class Ingredient {
+    public static void startIngredient() {
         Scanner sc = new Scanner(System.in);
         IngredientController ingredientController = new IngredientController();
 
@@ -100,5 +98,36 @@ public class Application {
 
         return parameter;
     }
+
+    public static void memberStartIngredient() {
+        Scanner sc = new Scanner(System.in);
+        IngredientController ingredientController = new IngredientController();
+
+        do {
+            System.out.println("========== 약성분 관리 ==========");
+            System.out.println("1. 전체 약성분 조회");
+            System.out.println("2. 약성분 코드로 조회");
+            System.out.println("9. 프로그램 종료");
+            System.out.println("================================");
+            System.out.print("관리 번호를 입력하세요");
+            int no = sc.nextInt();
+
+            switch (no) {
+                case 1:
+                    ingredientController.selectAllIngredients();
+                    break;
+                case 2:
+                    ingredientController.selectIngredientByCode(inputIngredientCode());
+                    break;
+                case 9:
+                    System.out.println("약성분 관리 프로그램을 종료합니다");
+                    return;
+                default:
+                    System.out.println("잘못된 관리 번호입니다");
+                    break;
+            }
+        } while (true);
+    }
 }
+
 
