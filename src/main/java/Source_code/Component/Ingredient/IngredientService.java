@@ -73,9 +73,9 @@ public class IngredientService {
 
         return result > 0? true: false;
     }
-    public IngredientDTO getIngredientByCode(String name) {
+    public IngredientDTO getIngredientByCode(String component) {
         SqlSession sqlSession = Source_code.Component.Ingredient.Template.getSqlSession();
-        IngredientDTO ingredient = ingredientDAO.getIngredientByCode(sqlSession, name);
+        IngredientDTO ingredient = ingredientDAO.getIngredientByCode(sqlSession, component);
         sqlSession.close();
         return ingredient;
     }

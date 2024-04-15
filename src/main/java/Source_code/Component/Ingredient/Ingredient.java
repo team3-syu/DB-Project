@@ -50,11 +50,11 @@ public class Ingredient {
 
     private static Map<String, String> inputIngredientCode() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("약 이름를 입력하세요: ");
-        String name = sc.nextLine();
+        System.out.print("약 성분를 입력하세요: ");
+        String component = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
-        parameter.put("name", name);
+        parameter.put("component", component);
 
         return parameter;
     }
@@ -112,7 +112,7 @@ public class Ingredient {
         do {
             System.out.println("========== 약성분 관리 ==========");
             System.out.println("1. 전체 약성분 조회");
-            System.out.println("2. 약성분 코드로 조회");
+            System.out.println("2. 약성분으로 조회");
             System.out.println("9. 프로그램 종료");
             System.out.println("================================");
             System.out.print("관리 번호를 입력하세요");

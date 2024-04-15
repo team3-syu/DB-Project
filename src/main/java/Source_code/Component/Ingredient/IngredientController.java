@@ -24,8 +24,8 @@ public class IngredientController {
     }
 
     public void selectIngredientByCode(Map<String, String> parameter) {
-         String name = parameter.get("name");
-        IngredientDTO ingredient = ingredientService.getIngredientByCode(name);
+         String component = parameter.get("component");
+        IngredientDTO ingredient = ingredientService.getIngredientByCode(component);
         if (ingredient != null) {
             printResult.printIngredient(ingredient);
         } else {
