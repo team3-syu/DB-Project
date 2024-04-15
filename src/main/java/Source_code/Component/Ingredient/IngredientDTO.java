@@ -8,17 +8,29 @@ public class IngredientDTO {
     private String ingredientName;
     private String effect;
     private String sideEffect;
+    private String component;
 
     public IngredientDTO() {
 
     }
-    public IngredientDTO(int id, int ingredientCode, String ingredientName, String effect, String sideEffect) {
+
+    public String getComponent() {
+        return component;
+    }
+
+    public void setComponent(String component) {
+        this.component = component;
+    }
+
+    public IngredientDTO(int id, int ingredientCode, String ingredientName, String effect, String sideEffect, String component) {
         this.id = id;;
         this.ingredientCode = ingredientCode;
         this.ingredientName = ingredientName;
         this.effect = effect;
-        this.sideEffect = sideEffect == null ? "" : sideEffect;;
+        this.sideEffect = sideEffect == null ? "" : sideEffect;
+        this.component = component;
     }
+
 
     public int getId() {
         return id;
@@ -68,6 +80,7 @@ public class IngredientDTO {
                 ", ingredientName='" + ingredientName + '\'' +
                 ", effect='" + effect + '\'' +
                 ", sideEffect='" + sideEffect + '\'' +
+                ", component='" + component + '\'' +
                 '}';
     }
 }
