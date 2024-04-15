@@ -24,8 +24,8 @@ public class IngredientController {
     }
 
     public void selectIngredientByCode(Map<String, String> parameter) {
-        int code = Integer.parseInt(parameter.get("code"));
-        IngredientDTO ingredient = ingredientService.getIngredientByCode(code);
+         String name = parameter.get("name");
+        IngredientDTO ingredient = ingredientService.getIngredientByCode(name);
         if (ingredient != null) {
             printResult.printIngredient(ingredient);
         } else {
@@ -86,7 +86,7 @@ public class IngredientController {
         String component = parameter.get("component");
 
         // 기존 약성분 정보 조회
-        IngredientDTO existingIngredient = ingredientService.getIngredientByCode(code);
+        IngredientDTO existingIngredient = ingredientService.getIngredientByCode(name);
         if (existingIngredient == null) {
             printResult.printErrorMessage("update");
             return;

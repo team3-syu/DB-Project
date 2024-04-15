@@ -14,8 +14,8 @@
         SELECT * FROM ingredients
     </select>
 
-    <select id="getIngredientByCode" resultMap="ingredientResultMap" parameterType="int">
-        SELECT * FROM ingredients WHERE IngredientCode = #{code}
+    <select id="getIngredientByCode" resultMap="ingredientResultMap" parameterType="Source_code.Component.Ingredient.IngredientDTO">
+        SELECT * FROM ingredients WHERE IngredientName = #{ingredientName}
     </select>
 
     <insert id="insertIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">

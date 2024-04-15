@@ -74,13 +74,14 @@ public class IngredientDTO {
 
     @Override
     public String toString() {
-        return "Ingredient{" +
-                "id=" + id +
-                ", ingredientCode='" + ingredientCode + '\'' +
-                ", ingredientName='" + ingredientName + '\'' +
-                ", effect='" + effect + '\'' +
-                ", sideEffect='" + sideEffect + '\'' +
-                ", component='" + component + '\'' +
+        return "약 성분" +
+                '\n'+
+                "{약 아이디=" + id +
+                ", 약 코드 = '" + ingredientCode + '\'' +
+                ", 약 이름 = '" + ingredientName + '\'' +
+                ", 효능 = '" + effect + '\'' +
+                ", 부작용=  '" + sideEffect + '\'' +
+                ", 약 성분 = '" + component + '\'' +
                 '}';
     }
 }
