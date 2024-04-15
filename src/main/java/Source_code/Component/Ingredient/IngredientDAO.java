@@ -9,8 +9,8 @@ public class IngredientDAO {
         return sqlSession.selectList("IngredientMapper.selectAllIngredients");
     }
 
-    public IngredientDTO getIngredientByCode(SqlSession sqlSession, int code) {
-        return sqlSession.selectOne("IngredientMapper.getIngredientByCode", code);
+    public IngredientDTO getIngredientByCode(SqlSession sqlSession, String name) {
+        return sqlSession.selectOne("IngredientMapper.getIngredientByCode", name);
     }
 
     public int insertIngredient(SqlSession sqlSession, IngredientDTO ingredient) {

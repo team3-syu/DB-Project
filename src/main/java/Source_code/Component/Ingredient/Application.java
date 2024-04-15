@@ -15,7 +15,7 @@ public class Application {
         do {
             System.out.println("========== 약성분 관리 ==========");
             System.out.println("1. 전체 약성분 조회");
-            System.out.println("2. 약성분 코드로 조회");
+            System.out.println("2. 약 이름으로 조회");
             System.out.println("3. 신규 약성분 추가");
             System.out.println("4. 기존 약성분 변경");
             System.out.println("5. 기존 약성분 삭제");
@@ -52,11 +52,11 @@ public class Application {
 
     private static Map<String, String> inputIngredientCode() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("약성분 코드를 입력하세요: ");
-        String code = sc.nextLine().trim();
+        System.out.print("약 이름를 입력하세요: ");
+        String name = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
-        parameter.put("code", code);
+        parameter.put("name", name);
 
         return parameter;
     }
