@@ -18,6 +18,8 @@ public class BookingService {
 
 
 
+
+
     public List<BookingDTO> selectMyBook(){
 
         SqlSession sqlSession = getSqlSession();
@@ -41,6 +43,8 @@ public class BookingService {
 
         return bookList;
     }
+
+
 
 
     public boolean insertMyBook(BookingDTO book) {
@@ -83,6 +87,7 @@ public class BookingService {
         int result = bookingDAO.updateBook(sqlSession, book);
 
         if (result > 0) {
+            bookingDAO.findBookAmount(sqlSession,book);
             sqlSession.commit();
         } else {
             sqlSession.rollback();

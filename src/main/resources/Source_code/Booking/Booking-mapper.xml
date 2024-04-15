@@ -60,6 +60,15 @@
 
     </select>
 
+    <select id="findBookAmount" resultMap ="bookResultMap" parameterType="Source_code.Booking.BookingDTO">
+        select medi_count
+        from booking
+        where BOOK_CODE = #{book_code}
+
+
+
+    </select>
+
 
 
     <insert id="insertMenu" parameterType="Source_code.Booking.BookingDTO">

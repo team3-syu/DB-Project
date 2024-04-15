@@ -127,7 +127,7 @@ public class BookingDTO {
 
     @Override
     public String toString() {
-        return "예약조회{" +
+        return "예약조회|" +
                 "예약 코드=" + book_code +
                 ", 예약 날짜='" + book_date + '\'' +
                 ", 고객 id='" + member_id + '\'' +
@@ -136,7 +136,7 @@ public class BookingDTO {
                 ", 예약 수량=" + medi_count +
                 ", 예약 상태=" + book_status +
 
-                '}';
+                "     |";
 
     }
 }

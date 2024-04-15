@@ -76,12 +76,11 @@ public class IngredientDTO {
     public String toString() {
         return "약 성분" +
                 '\n'+
-                "{약 아이디=" + id +
-                ", 약 코드 = '" + ingredientCode + '\'' +
-                ", 약 이름 = '" + ingredientName + '\'' +
+                "{"+
+                ", 성분 코드 = '" + id + '\'' +
+                ", 약 성분 = '" + component + '\'' +
                 ", 효능 = '" + effect + '\'' +
                 ", 부작용=  '" + sideEffect + '\'' +
-                ", 약 성분 = '" + component + '\'' +
                 '}';
     }
 }

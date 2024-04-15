@@ -239,6 +239,7 @@ public class Application {
             case 3:
                 bookingStart(mem_code); showUserMenu(id,password); break;
             case 9:
+                break;
 
         }
 

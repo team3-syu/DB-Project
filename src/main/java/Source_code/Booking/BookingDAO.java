@@ -12,13 +12,13 @@ public class BookingDAO {
     }
 
     public List<BookingDTO> selectMemberBook(SqlSession sqlSession,BookingDTO book) {
-        System.out.println(book.getMem_code());
+
 
         return sqlSession.selectList("BookMapper.selectMemberBook",book);
     }
 
     public int insertMenu(SqlSession sqlSession, BookingDTO book) {
-        System.out.println(book.getMedi_name());
+
         return sqlSession.insert("BookMapper.insertMenu", book);
 
     }
@@ -36,5 +36,16 @@ public class BookingDAO {
         return sqlSession.update("BookMapper.updateBook", book);
 
     }
+
+    public List<BookingDTO> findBookAmount(SqlSession sqlSession,BookingDTO book){
+
+        sqlSession.selectList("BookMapper.updateBook",book);
+
+
+        return sqlSession.selectList("BookMapper.updateBook",book);
+
+    }
+
+
 
 }
