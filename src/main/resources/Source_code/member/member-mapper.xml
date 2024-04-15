@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberMapper">
+
+    <resultMap type="Source_code.member.MemberDTO" id="memberResultMap">
+        <id property="member_code" column="member_code"/>
+        <result property="member_id" column="member_id"/>
+        <result property="member_password" column="member_password"/>
+        <result property="member_name" column="member_name"/>
+        <result property="member_phone" column="member_phone"/>
+        <result property="member_birthday" column="member_birthday"/>
+        <result property="member_gender" column="member_gender"/>
+        <result property="member_email" column="member_email"/>
+    </resultMap>
+
+
+    <select id="selectMember" resultMap="memberResultMap">
+        SELECT  MEMBER_CODE
+               , MEMBER_ID
+               , MEMBER_PASSWORD
+               , MEMBER_NAME
+               ,MEMBER_PHONE
+               ,MEMBER_BIRTHDAY
+               ,MEMBER_GENDER
+               ,MEMBER_EMAIL
+       FROM  MEDICINE.MEMBER
+        ORDER BY MEMBER_CODE
+    </select>
+
+
+
+<insert id="memberInsert" parameterType="Source_code.member.MemberDTO">
+    INSERT INTO MEDICINE.MEMBER
+
+
+    VALUES (
+            null
+            ,#{member_id}
+           ,#{member_password}
+           ,#{member_name}
+           ,#{member_phone}
+           ,#{member_birthday}
+           ,#{member_gender}
+           ,#{member_email}
+           )
+</insert>
+
+    <update id="memberUpdate" parameterType="Source_code.member.MemberDTO">
+        UPDATE MEDICINE.MEMBER
+        SET
+            MEMBER_PASSWORD = #{member_password}
+          , MEMBER_NAME = #{member_name}
+          ,MEMBER_PHONE = #{member_phone}
+          ,MEMBER_BIRTHDAY = #{member_birthday}
+          ,MEMBER_GENDER = #{member_gender}
+          ,MEMBER_EMAIL = #{member_email}
+
+        WHERE MEMBER_ID = #{member_id}
+
+    </update>
+
+<delete id="memberDelete" parameterType="String">
+
+    DELETE
+       FROM MEDICINE.MEMBER
+    WHERE MEMBER_ID = #{member_id}
+
+
+</delete>
+
+
+<select id="memberSearchById"  parameterType="String" resultMap="memberResultMap">
+    SELECT MEMBER_ID
+           ,MEMBER_PASSWORD
+           ,MEMBER_NAME
+           ,MEMBER_PHONE
+           ,MEMBER_BIRTHDAY
+           ,MEMBER_GENDER
+           ,MEMBER_EMAIL
+    FROM  MEDICINE.MEMBER
+    WHERE MEMBER_ID = #{member_id}
+
+
+</select>
+
+    <select id="checkLogin" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM MEDICINE.MEMBER
+        WHERE MEMBER_ID = #{member_id} AND MEMBER_PASSWORD = #{member_password}
+    </select>
+
+
+
+    <select id="getMemberCodeAndName" resultMap="memberResultMap">
+        SELECT MEMBER_CODE
+        FROM MEDICINE.MEMBER
+        where MEMBER_ID like #{member_id} and MEMBER_PASSWORD like #{member_password}
+    </select>
+
+
+
+
+</mapper>
