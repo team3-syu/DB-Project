@@ -55,9 +55,10 @@ public class IngredientController {
         String ingredientName = parameter.get("name");
         String effect = parameter.get("effect");
         String sideEffect = parameter.get("sideEffect");
+        String component = parameter.get("component");
 
         // IngredientDTO 객체 생성
-        IngredientDTO ingredient = new IngredientDTO(0, ingredientCode, ingredientName, effect, sideEffect);
+        IngredientDTO ingredient = new IngredientDTO(0, ingredientCode, ingredientName, effect, sideEffect,component);
 
         // ingredientService의 insertIngredient 메서드 호출하여 약성분 등록
         boolean result = ingredientService.insertIngredient(ingredient);
@@ -82,6 +83,7 @@ public class IngredientController {
         String name = parameter.get("name");
         String effect = parameter.get("effect");
         String sideEffect = parameter.get("sideEffect");
+        String component = parameter.get("component");
 
         // 기존 약성분 정보 조회
         IngredientDTO existingIngredient = ingredientService.getIngredientByCode(code);
@@ -94,6 +96,7 @@ public class IngredientController {
         existingIngredient.setIngredientName(name);
         existingIngredient.setEffect(effect);
         existingIngredient.setSideEffect(sideEffect);
+        existingIngredient.setComponent(component);
 
         // 약성분 정보 업데이트
         boolean result = ingredientService.updateIngredient(existingIngredient);

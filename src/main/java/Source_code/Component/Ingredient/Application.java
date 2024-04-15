@@ -71,12 +71,15 @@ public class Application {
         String effect = sc.nextLine();
         System.out.print("약성분 부작용을 입력하세요: ");
         String sideEffect = sc.nextLine();
+        System.out.printf("성분을 입력하세요: ");
+        String component= sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("ingredientCode", ingredientCode);
         parameter.put("name", name);
         parameter.put("effect", effect);
         parameter.put("sideEffect", sideEffect);
+        parameter.put("component", component);
 
         return parameter;
     }
@@ -91,12 +94,15 @@ public class Application {
         String effect = sc.nextLine();
         System.out.print("수정할 약성분 부작용을 입력하세요: ");
         String sideEffect = sc.nextLine();
+        System.out.print("수정할 약성분 성분을 입력하세요: ");
+        String component = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("code", code);
         parameter.put("name", name);
         parameter.put("effect", effect);
         parameter.put("sideEffect", sideEffect);
+        parameter.put("component", component);
 
         return parameter;
     }
