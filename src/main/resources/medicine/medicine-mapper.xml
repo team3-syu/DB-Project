@@ -16,7 +16,7 @@
 
     <select id="selectAllMedicine" resultMap="medicineResultMap">
         SELECT *
-        FROM medicine
+          FROM medicine
     </select>
 
 

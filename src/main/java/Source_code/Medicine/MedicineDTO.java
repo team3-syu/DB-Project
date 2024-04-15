@@ -82,13 +82,13 @@ public class MedicineDTO {
     @Override
     public String toString() {
         return "MedichineDTO{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", component='" + component + '\'' +
-                ", effect='" + effect + '\'' +
-                ", sideEffect='" + sideEffect + '\'' +
-                ", amount=" + amount +
-                ", strong='" + strong + '\'' +
+                "약 코드 = '" + code + '\'' +
+                ", 약 이름 = '" + name + '\'' +
+                ", 약 성분 = '" + component + '\'' +
+                ", 약 효능 = '" + effect + '\'' +
+                ", 약 부작용 = '" + sideEffect + '\'' +
+                ", 수량 = " + amount +
+                ", 세기 = '" + strong + '\'' +
                 '}';
     }
 
