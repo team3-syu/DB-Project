@@ -12,12 +12,8 @@
         <result property="m_code" column="MEDI_CODE"/>
         <result property="medi_count" column="MEDI_COUNT"/>
         <result property="book_status" column="BOOK_STATUS"/>
-
-        <collection property="member_id" resultMap="memberResultMap"/>
-        <collection property="member_name" resultMap="memberResultMap"/>
-        <collection property="amount" resultMap="medicineResultMap"/>
-        <collection property="name" resultMap="medicineResultMap"/>
-        <collection property="code" resultMap="medicineResultMap"/>
+        <result property="medi_name" column="M_NAME"/>
+        <result property="member_id" column="MEMBER_ID"/>
 
 
     </resultMap>
@@ -43,11 +39,22 @@
 
 
 
-    <select id="selectMyBook" resultType="Source_code.Booking.BookingDTO">
-        select b.book_code,b.book_date,m.member_id,m.member_name,md.m_name,b.medi_count,book_status
+    <select id="selectMyBook" resultMap="bookResultMap" parameterType="Source_code.Booking.BookingDTO">
+        select b.BOOK_CODE,b.BOOK_DATE,m.member_id,m.member_name,md.M_NAME,b.MEDI_COUNT,BOOK_STATUS
         from booking b
         join member m on b.mem_code=m.member_code
         join medicine md on md.m_code = b.medi_code;
+
+
+
+    </select>
+
+    <select id="selectMemberBook" resultMap ="bookResultMap" parameterType="Source_code.Booking.BookingDTO">
+        select b.BOOK_CODE,b.BOOK_DATE,m.MEMBER_ID,m.MEMBER_NAME,md.M_NAME,b.MEDI_COUNT,BOOK_STATUS
+        from booking b
+                 join member m on b.MEM_CODE=m.MEMBER_CODE
+                 join medicine md on md.M_CODE = b.MEDI_CODE
+    where b.MEM_CODE = #{mem_code}
 
 
 

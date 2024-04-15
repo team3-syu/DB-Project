@@ -29,9 +29,21 @@ public class BookingService {
         return bookList;
     }
 
+    public List<BookingDTO> selectMemberBook(BookingDTO book){
+
+        book.getMem_code();
+
+        SqlSession sqlSession = getSqlSession();
+
+        List<BookingDTO> bookList = bookingDAO.selectMemberBook(sqlSession,book);
+
+        sqlSession.close();
+
+        return bookList;
+    }
+
 
     public boolean insertMyBook(BookingDTO book) {
-
         SqlSession sqlSession = getSqlSession();
 
         int result = bookingDAO.insertMenu(sqlSession, book);
@@ -52,7 +64,7 @@ public class BookingService {
         SqlSession sqlSession = getSqlSession();
 
         int result = bookingDAO.deleteBook(sqlSession, book);
-        System.out.println(result);
+
         if (result > 0) {
             sqlSession.commit();
         } else {
@@ -69,7 +81,7 @@ public class BookingService {
         SqlSession sqlSession = getSqlSession();
 
         int result = bookingDAO.updateBook(sqlSession, book);
-        System.out.println(result);
+
         if (result > 0) {
             sqlSession.commit();
         } else {

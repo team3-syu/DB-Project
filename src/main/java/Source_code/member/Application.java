@@ -6,7 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-/*import static Source_code.Booking.Booking.bookingStart;*/
+import static Source_code.Booking.Booking.bookingStart;
+
+
+import static Source_code.Booking.Booking.managerBookingStart;
+
 import static Source_code.Component.Ingredient.Ingredient.memberStartIngredient;
 import static Source_code.Component.Ingredient.Ingredient.startIngredient;
 import static Source_code.Medicine.Medicine.medicineMenu;
@@ -38,9 +42,8 @@ public class Application {
                 case 9:
                     System.out.println("===프로그램을 종료합니다===");
                     return;
-              /*  case 10:
-                    memberController.getMemberCodeAndName();
-                    break;*/
+
+
                 default:
                     System.out.println("잘못 입력 하셨습니다.");
                     break;
@@ -117,7 +120,7 @@ public class Application {
                     startIngredient(); showAdminMenu();
                     break;
                 case 7:
-                    /*bookingStart(); showAdminMenu();*/
+                    managerBookingStart(); showAdminMenu();
                     break;
                 case 9:
                     System.out.println("===프로그램을 종료합니다===");
@@ -220,9 +223,9 @@ public class Application {
 
         System.out.println();
         System.out.println("======고객 서비스=====");
-        System.out.println("1.약 정보 조회하기");
-        System.out.println("2.약 성분 조회하기");
-        System.out.println("3.나의 약 예약하기");
+        System.out.println("1. 약 정보 조회하기");
+        System.out.println("2. 약 성분 조회하기");
+        System.out.println("3. 예약 메뉴");
         System.out.println("9.프로그램 종료");
         System.out.print("원하는 번호를 입력하세요: ");
 
@@ -234,7 +237,7 @@ public class Application {
             case 2:
                 memberStartIngredient(); showUserMenu(id,password); break;
             case 3:
-               /* bookingStart(); showUserMenu(); break;*/
+                bookingStart(mem_code); showUserMenu(id,password); break;
             case 9:
 
         }

@@ -11,7 +11,14 @@ public class BookingDAO {
         return sqlSession.selectList("BookMapper.selectMyBook");
     }
 
+    public List<BookingDTO> selectMemberBook(SqlSession sqlSession,BookingDTO book) {
+        System.out.println(book.getMem_code());
+
+        return sqlSession.selectList("BookMapper.selectMemberBook",book);
+    }
+
     public int insertMenu(SqlSession sqlSession, BookingDTO book) {
+        System.out.println(book.getMedi_name());
         return sqlSession.insert("BookMapper.insertMenu", book);
 
     }

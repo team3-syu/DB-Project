@@ -122,7 +122,7 @@ public class MemberController {
 
 
     public String getMemberCodeAndName(String id,String password) {
-        System.out.println("컨트롤러통과 getMemberCodeAndName");
+
         MemberDTO member_login = new MemberDTO();
         member_login.setMember_id(id);
         member_login.setMember_password(password);

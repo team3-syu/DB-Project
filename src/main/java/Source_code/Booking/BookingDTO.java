@@ -1,25 +1,25 @@
 package Source_code.Booking;
 
 public class BookingDTO {
- private int book_code;
- private String book_date;
- private int mem_code;
- private String m_code;
- private int medi_count;
- private char book_status;
+    private int book_code;
+    private String book_date;
+    private int mem_code;
+    private String m_code;
+    private int medi_count;
+    private char book_status;
 
- private String mem_name;
- private String medi_name;
+    private String mem_name;
+    private String medi_name;
 
- private String member_id;
+    private String member_id;
 
- private String member_name;
+    private String member_name;
 
- private int amount;
+    private int amount;
 
- private String name;
+    private String name;
 
- private String code;
+    private String code;
 
     public String getMember_id() {
         return member_id;
@@ -130,17 +130,13 @@ public class BookingDTO {
         return "예약조회{" +
                 "예약 코드=" + book_code +
                 ", 예약 날짜='" + book_date + '\'' +
-                ", 고객 번호=" + mem_code +
-                ", 약 코드='" + m_code + '\'' +
-                ", 약 재고=" + medi_count +
-                ", 예약 상태=" + book_status +
-                ", 고객 이름='" + mem_name + '\'' +
-                ", 약 이름='" + medi_name + '\'' +
                 ", 고객 id='" + member_id + '\'' +
                 ", 고객 이름='" + member_name + '\'' +
-                ", 총량=" + amount +
-                ", 약이름='" + name + '\'' +
-                ", 약코드='" + code + '\'' +
+                ", 약 이름='" + medi_name + '\'' +
+                ", 예약 수량=" + medi_count +
+                ", 예약 상태=" + book_status +
+
                 '}';
+
     }
 }

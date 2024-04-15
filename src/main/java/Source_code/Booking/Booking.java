@@ -9,30 +9,55 @@ import java.util.Scanner;
 
 
 public class Booking {
-
-    public static void main(String[] args) {
-   /* public static void bookingStart() {*/
+    public static void managerBookingStart() {
 
         BookingControler bookingControler = new BookingControler();
-        LocalDate date = LocalDate.now();
 
 
-        System.out.println(date);
-        System.out.println("========= 예약 조회 페이지 입니다. ===========");
+
+
+        System.out.println("========= 매니저예약 관리 페이지 입니다. ===========");
         addSpace();
-        System.out.println("1. 내예약 조회 하기");
-        System.out.println("2. 예약하기");
-        System.out.println("3. 삭제하기");
-        System.out.println("4. 예약상태 변경 하기");
+        System.out.println("1. 예약 내역 조회 하기");
+        System.out.println("2. 예약 삭제 하기");
+        System.out.println("3. 예약 확정 하기");
         System.out.println("9. 돌아가기");
         Scanner sc = new Scanner(System.in);
         int SelectMenu = sc.nextInt();
 
         switch (SelectMenu){
             case 1 : bookingControler.selectMyBook();break;
-            case 2 : bookingControler.inserBooking(inputMenu());break;
-            case 3 : bookingControler.deleteMyBook(deleteBook());break;
-            case 4 : bookingControler.updateBookStatus(UpdateBook());break;
+            case 2 : bookingControler.deleteMyBook(deleteBook());break;
+            case 3 : bookingControler.updateBookStatus(UpdateBook());break;
+            case 9 : return;
+
+        }
+
+
+    }
+
+
+   public static void bookingStart(String mem_code) {
+
+
+
+
+        BookingControler bookingControler = new BookingControler();
+        LocalDate date = LocalDate.now();
+
+
+        System.out.println(date);
+        System.out.println("========= 회원예약 조회 페이지 입니다. ===========");
+        addSpace();
+        System.out.println("1. 내예약 조회 하기");
+        System.out.println("2. 예약하기");
+        System.out.println("9. 돌아가기");
+        Scanner sc = new Scanner(System.in);
+        int SelectMenu = sc.nextInt();
+
+        switch (SelectMenu){
+            case 1 : bookingControler.selectMemberBook(mem_code);break;
+            case 2 : bookingControler.inserBooking(inputMenu(mem_code));break;
             case 9 : return;
 
         }
@@ -49,7 +74,7 @@ public class Booking {
 
     }
 
-    private static Map<String, String> inputMenu() {
+    private static Map<String, String> inputMenu(String mem_code) {
 
         LocalDate date = LocalDate.now();
 
@@ -65,7 +90,7 @@ public class Booking {
         parameter.put("bookDate", String.valueOf(date));
         parameter.put("bookMediName", bookMediName);
         parameter.put("bookMediCount", bookMediCount);
-        parameter.put("memberCode","1");
+        parameter.put("memberCode",mem_code);
 
 
         return parameter;

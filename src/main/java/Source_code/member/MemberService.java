@@ -100,11 +100,10 @@ public class MemberService {
 
     public String getMemberCodeAndName(MemberDTO login_member) {
         try (SqlSession sqlSession = Template.getSqlSession()) {
-            System.out.println("서비스통과 getMemberCodeAndName");
+
             // 회원 코드와 이름을 가져오는 쿼리 실행
             MemberDTO memberDTO = memberDAO.getMemberCodeAndName(sqlSession, login_member);
             int memberCode = memberDTO.getMember_code();
-            System.out.println(memberCode);
             return String.valueOf(memberCode);
 
         } catch (Exception e) {

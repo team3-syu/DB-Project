@@ -23,7 +23,19 @@ public class BookingControler {
         }
 
 
-        System.out.println("컨트롤러통과");
+
+    }
+    public void selectMemberBook(String mem_code) {
+        BookingDTO book = new BookingDTO();
+        book.setMem_code(Integer.parseInt(mem_code));
+        List<BookingDTO> myBookList = bookingService.selectMemberBook(book);
+        if(myBookList != null) {
+            printResult.printMenuList(myBookList);
+        }
+        else{
+            System.out.println("약이름을 잘못입력했습니다");
+        }
+
 
     }
     public void deleteMyBook(String deleteCode){
