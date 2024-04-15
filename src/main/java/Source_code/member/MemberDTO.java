@@ -95,15 +95,15 @@ public class MemberDTO implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "MemberDTO{" +
-                "member_code=" + member_code +
-                ", member_id='" + member_id + '\'' +
-                ", member_password='" + member_password + '\'' +
-                ", member_name='" + member_name + '\'' +
-                ", member_phone='" + member_phone + '\'' +
-                ", member_birthday='" + member_birthday + '\'' +
-                ", member_gender='" + member_gender + '\'' +
-                ", member_email='" + member_email + '\'' +
-                '}';
+        return "고객 정보|" +
+                "고객 코드,=" + member_code +
+                ", 고객 id='" + member_id + '\'' +
+                ", 고객 password='" + member_password + '\'' +
+                ", 고객 이름='" + member_name + '\'' +
+                ", 핸드폰 번호='" + member_phone + '\'' +
+                ", 생년월일='" + member_birthday + '\'' +
+                ", 성별='" + member_gender + '\'' +
+                ", 이메일='" + member_email + '\'' +
+                '|';
     }
 }
