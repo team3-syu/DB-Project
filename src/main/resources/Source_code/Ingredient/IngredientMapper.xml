@@ -7,6 +7,7 @@
         <result property="ingredientName" column="IngredientName"/>
         <result property="effect" column="Effect"/>
         <result property="sideEffect" column="SideEffect"/>
+        <result property="component" column="Component"/>
     </resultMap>
 
     <select id="selectAllIngredients" resultMap="ingredientResultMap">
@@ -18,15 +19,17 @@
     </select>
 
     <insert id="insertIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">
-        INSERT INTO ingredients (IngredientCode, IngredientName, Effect, SideEffect)
-        VALUES (#{ingredientCode}, #{ingredientName}, #{effect}, #{sideEffect, jdbcType=VARCHAR})
+        INSERT INTO ingredients (IngredientCode, IngredientName, Effect, SideEffect,Component)
+        VALUES (#{ingredientCode}, #{ingredientName}, #{effect}, #{sideEffect, jdbcType=VARCHAR},#{component})
     </insert>
 
     <update id="updateIngredient" parameterType="Source_code.Component.Ingredient.IngredientDTO">
         UPDATE ingredients
         SET IngredientName = #{ingredientName},
             Effect = #{effect},
-            SideEffect = #{sideEffect}
+            SideEffect = #{sideEffect},
+            Component = #{component}
+
         WHERE IngredientCode = #{ingredientCode}
     </update>
 
