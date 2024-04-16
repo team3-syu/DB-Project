@@ -81,15 +81,15 @@ public class MedicineDTO {
 
     @Override
     public String toString() {
-        return "MedichineDTO{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", component='" + component + '\'' +
-                ", effect='" + effect + '\'' +
-                ", sideEffect='" + sideEffect + '\'' +
-                ", amount=" + amount +
-                ", strong='" + strong + '\'' +
-                '}';
+        return "약품 정보 |" +
+                "약 코드='" + code + '\'' +
+                ", 약이름='" + name + '\'' +
+                ", 성분='" + component + '\'' +
+                ", 효과='" + effect + '\'' +
+                ", 부작용='" + sideEffect + '\'' +
+                ", 재고=" + amount +
+                ", 세기='" + strong + '\'' +
+                "|";
     }
 
 }
