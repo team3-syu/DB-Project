@@ -3,8 +3,6 @@
 
 ![KakaoTalk_Photo_2024-04-15-16-03-20](https://github.com/team3-syu/DB-Project/assets/96677474/be390a70-a0ec-463f-979e-8cfa6a01d16a)
 
-- 관리자 ID : manager
-- 관리자 PW : 1234
 
 <br>
 
@@ -22,7 +20,7 @@
 
 | **윤석용** | **김나연** | **김현수** | **안홍영** |
 | :------: |  :------: | :------: | :------: |
-| [<img src="https://avatars.githubusercontent.com/u/132437309?v=4" height=150 width=150> <br/> @Yoon0917](https://github.com/Yoon0917) | [<img src="https://avatars.githubusercontent.com/u/132421122?v=4" height=150 width=150> <br/> @nayeon0891](https://github.com/nayeon0891) | [<img src="https://avatars.githubusercontent.com/u/130562778?v=4" height=150 width=150> <br/> @syongsyong6035](https://github.com/syongsyong6035) | [<img src="https://avatars.githubusercontent.com/u/96677474?v=4" height=150 width=150> <br/> @inredzero](https://github.com/inredzero) |
+| [<img src="https://avatars.githubusercontent.com/u/132437309?v=4" height=150 width=150> <br/> @Yoon0917](https://github.com/Yoon0917) | [<img src="https://avatars.githubusercontent.com/u/132421122?v=4" height=150 width=150> <br/> @nayeon0891](https://github.com/nayeon0891) | [<img src="https://avatars.githubusercontent.com/u/130562778?v=4" height=150 width=150> <br/> @syongsyong6035](https://github.com/syongsyong6035) | [<img src="https://avatars.githubusercontent.com/u/96677474?v=4" height=150 width=150> <br/> @inredzero](https://github.com/inredzero) |
 
 </div>
 
@@ -33,7 +31,7 @@
 - MyBatis
 - 버전 및 이슈관리 : Github, Github Issues
 - 협업 툴 : Discord, Notion, Kakaotalk
-- 
+  
 <br>
 
 ## 2. 채택한 개발 기술과 브랜치 전략
@@ -85,26 +83,5 @@
     
 <br>
 
-### 작업 관리
 
-- GitHub Issues를 사용하여 진행 상황을 공유했습니다.
-- 회의를 진행하며 작업 순서와 방향성에 대한 고민을 나누고 Notion에 회의 내용을 기록했습니다.
-
-<br>
-
-## 5. 프로젝트 후기
-
-### 🐲윤석용
-
-<br>
-
-### 🪁김나연
-
-<br>
-
-### 🐳김현수
-
-<br>
-
-### 🍎안홍영
 
