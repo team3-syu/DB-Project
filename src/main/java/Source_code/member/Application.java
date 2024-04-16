@@ -97,7 +97,7 @@ public class Application {
             System.out.println("6.성분 관리하기");
             System.out.println("7.예약 관리하기");
 
-            System.out.println("9.프로그램 종료");
+            System.out.println("9.로그아웃");
             System.out.print("원하는 번호를 입력하세요: ");
             int no = sc.nextInt();
             switch (no) {
@@ -226,7 +226,7 @@ public class Application {
         System.out.println("1. 약 정보 조회하기");
         System.out.println("2. 약 성분 조회하기");
         System.out.println("3. 예약 메뉴");
-        System.out.println("9.프로그램 종료");
+        System.out.println("9.로그아웃");
         System.out.print("원하는 번호를 입력하세요: ");
 
         Scanner sc = new Scanner(System.in);

@@ -17,7 +17,7 @@ public class Medicine {
             System.out.println("2. 신규 약 추가");
             System.out.println("3. 기존 약 변경");
             System.out.println("4. 기존 약 삭제");
-            System.out.println("9. 프로그램 종료");
+            System.out.println("9. 돌아가기");
             System.out.println("============================");
             System.out.print("약 관리 번호를 입력하세요 : ");
             int no = scanner.nextInt();

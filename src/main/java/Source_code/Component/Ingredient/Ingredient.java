@@ -13,11 +13,11 @@ public class Ingredient {
         do {
             System.out.println("========== 약성분 관리 ==========");
             System.out.println("1. 전체 약성분 조회");
-            System.out.println("2. 약 이름으로 조회");
+            System.out.println("2. 약 성분으로 조회");
             System.out.println("3. 신규 약성분 추가");
             System.out.println("4. 기존 약성분 변경");
             System.out.println("5. 기존 약성분 삭제");
-            System.out.println("9. 프로그램 종료");
+            System.out.println("9. 돌아가기");
             System.out.println("================================");
             System.out.print("관리 번호를 입력하세요");
             int no = sc.nextInt();
@@ -113,7 +113,7 @@ public class Ingredient {
             System.out.println("========== 약성분 관리 ==========");
             System.out.println("1. 전체 약성분 조회");
             System.out.println("2. 약성분으로 조회");
-            System.out.println("9. 프로그램 종료");
+            System.out.println("9. 돌아가기");
             System.out.println("================================");
             System.out.print("관리 번호를 입력하세요");
             int no = sc.nextInt();
